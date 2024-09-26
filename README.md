@@ -44,6 +44,7 @@ challenge-ratherlabs/
 │   │       └── OrderListCard.tsx
 │   ├── store/
 │   │   └── useOrderStore.ts
+│   │   └── useSnackbarStore.tsx
 │   ├── test/
 │   │   ├── OrderForm.test.tsx
 │   │   └── OrderFull.test.tsx
@@ -124,7 +125,29 @@ challenge-ratherlabs/
    VITE_API_URL=https://api.ejemplo.com
    ```
 
-   Reemplaza `https://api.ejemplo.com` con tu endpoint de API real.
+   Reemplaza `https://api.coingecko.com/api/v3` con tu endpoint de API real.
+
+## Docker
+
+Puedes levantar este proyecto ejecutando:
+
+```bash
+docker-compose up --build
+```
+
+y el proyecto estará disponible instalando las dependencias y configuraciones necesarias para que funcione correctamente.
+
+Al finalizar estará disponible en:
+
+```bash
+localhost:3000
+```
+
+Si quieres detener el contenedor:
+
+```bash
+docker-compose down
+```
 
 ## Uso
 
@@ -217,34 +240,6 @@ yarn build
 ```
 
 Esto generará archivos optimizados y minificados en el directorio `dist/`.
-
-## Contribuyendo
-
-¡Las contribuciones son bienvenidas! Por favor, sigue estos pasos:
-
-1. **Fork del repositorio**
-
-2. **Crear una nueva rama**
-
-   ```bash
-   git checkout -b feature/TuFeature
-   ```
-
-3. **Realiza tus cambios**
-
-4. **Hacer commit de los cambios**
-
-   ```bash
-   git commit -m "Añade tu mensaje"
-   ```
-
-5. **Push a la rama**
-
-   ```bash
-   git push origin feature/TuFeature
-   ```
-
-6. **Crear un nuevo Pull Request**
 
 ## Licencia
 
