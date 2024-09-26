@@ -1,50 +1,265 @@
-# React + TypeScript + Vite
+# Challenge Rather Labs
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Licencia](https://img.shields.io/badge/licencia-MIT-blue.svg)
+![Estado de Build](https://img.shields.io/github/workflow/status/edecarlini/membrane-frontend-cc/CI)
+![Versión de npm](https://img.shields.io/npm/v/challenge-ratherlabs.svg)
 
-Currently, two official plugins are available:
+## Tabla de Contenidos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Introducción](#introducción)
+- [Características](#características)
+- [Tecnologías Utilizadas](#tecnologías-utilizadas)
+- [Instalación](#instalación)
+- [Uso](#uso)
+- [Pruebas](#pruebas)
+- [Construcción](#construcción)
+- [Contribuyendo](#contribuyendo)
+- [Licencia](#licencia)
+- [Contacto](#contacto)
 
-## Expanding the ESLint configuration
+## Introducción
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+**Challenge Rather Labs** es una aplicación web desarrollada con **React**, **Vite** y **TypeScript**, diseñada para gestionar órdenes relacionadas con criptomonedas. Permite a los usuarios crear, visualizar y gestionar órdenes, obteniendo precios en tiempo real desde una API de criptomonedas.
 
-- Configure the top-level `parserOptions` property like this:
+### Estructura del Proyecto
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+challenge-ratherlabs/
+├── __mocks__/
+│   └── fileMock.js
+├── jest.config.cjs
+├── jest.setup.cjs
+├── package.json
+├── tsconfig.json
+├── tsconfig.app.json
+├── tsconfig.node.json
+├── tsconfig.test.json
+├── src/
+│   ├── api/
+│   │   └── cryptoAPI.ts
+│   ├── components/
+│   │   └── Order/
+│   │       ├── OrderForm.tsx
+│   │       ├── OrderList.tsx
+│   │       └── OrderListCard.tsx
+│   ├── store/
+│   │   └── useOrderStore.ts
+│   ├── test/
+│   │   ├── OrderForm.test.tsx
+│   │   └── OrderFull.test.tsx
+│   ├── types/
+│   │   └── order.ts
+│   └── utils/
+│       └── env.ts
+└── ...
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Características
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- **Crear Órdenes:** Los usuarios pueden crear nuevas órdenes seleccionando una criptomoneda, especificando la cantidad y estableciendo una fecha de expiración.
+- **Ver Órdenes:** Muestra una lista de todas las órdenes con detalles como criptomoneda, cantidad, precio total y fecha de expiración.
+- **Editar Órdenes:** Los usuarios pueden editar órdenes existentes para actualizar sus detalles.
+- **Eliminar Órdenes:** Los usuarios pueden descartar órdenes que ya no necesitan.
+- **Obtención de Precios en Tiempo Real:** Integra con una API de criptomonedas para obtener precios en tiempo real.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+## Tecnologías Utilizadas
+
+- **Frontend:**
+
+  - [React](https://reactjs.org/)
+  - [Vite](https://vitejs.dev/)
+  - [TypeScript](https://www.typescriptlang.org/)
+  - [Material-UI (MUI)](https://mui.com/)
+  - [React Hook Form](https://react-hook-form.com/)
+  - [Yup](https://github.com/jquense/yup)
+  - [Zustand](https://github.com/pmndrs/zustand)
+  - [Axios](https://axios-http.com/)
+
+- **Testing:**
+
+  - [Jest](https://jestjs.io/)
+  - [ts-jest](https://kulshekhar.github.io/ts-jest/)
+  - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+  - [@testing-library/jest-dom](https://github.com/testing-library/jest-dom)
+
+- **Otros:**
+  - [ESLint](https://eslint.org/)
+  - [Prettier](https://prettier.io/)
+
+## Instalación
+
+### Prerrequisitos
+
+- **Node.js** (v14 o superior)
+- **npm** (v6 o superior) o **yarn**
+
+### Pasos
+
+1. **Clonar el Repositorio**
+
+   ```bash
+   git clone https://github.com/edecarlini/challenge-ratherlabs.git
+   cd challenge-ratherlabs
+   ```
+
+2. **Instalar Dependencias**
+
+   Usando npm:
+
+   ```bash
+   npm install
+   ```
+
+   O usando yarn:
+
+   ```bash
+   yarn install
+   ```
+
+3. **Configurar Variables de Entorno**
+
+   Crea un archivo `.env` en el directorio raíz y añade las variables de entorno necesarias.
+
+   ```env
+   VITE_API_URL=https://api.ejemplo.com
+   ```
+
+   Reemplaza `https://api.ejemplo.com` con tu endpoint de API real.
+
+## Uso
+
+### Servidor de Desarrollo
+
+Para iniciar el servidor de desarrollo, ejecuta:
+
+```bash
+npm run dev
 ```
+
+O usando yarn:
+
+```bash
+yarn dev
+```
+
+La aplicación estará disponible en `http://localhost:5173` por defecto.
+
+### Construcción para Producción
+
+Para construir la aplicación para producción, ejecuta:
+
+```bash
+npm run build
+```
+
+O usando yarn:
+
+```bash
+yarn build
+```
+
+Los artefactos de la construcción se almacenarán en el directorio `dist/`.
+
+### Previsualizar la Construcción de Producción
+
+Para previsualizar la construcción de producción localmente, ejecuta:
+
+```bash
+npm run preview
+```
+
+O usando yarn:
+
+```bash
+yarn preview
+```
+
+## Pruebas
+
+El proyecto utiliza **Jest** para realizar pruebas. Las pruebas están escritas utilizando **React Testing Library**.
+
+### Ejecutar Pruebas
+
+Para ejecutar todas las pruebas, ejecuta:
+
+```bash
+npm run test
+```
+
+O usando yarn:
+
+```bash
+yarn test
+```
+
+### Configuración de las Pruebas
+
+El proyecto utiliza Jest con `ts-jest` para soporte de TypeScript. La configuración de Jest está definida en `jest.config.cjs`.
+
+### Escribir Pruebas
+
+Las pruebas se encuentran en el directorio `src/test/`. Puedes crear nuevos archivos de prueba siguiendo el patrón `NombreComponente.test.tsx`.
+
+## Construcción
+
+El proceso de construcción está manejado por **Vite** y **TypeScript**.
+
+Para crear una construcción para producción, usa:
+
+```bash
+npm run build
+```
+
+O usando yarn:
+
+```bash
+yarn build
+```
+
+Esto generará archivos optimizados y minificados en el directorio `dist/`.
+
+## Contribuyendo
+
+¡Las contribuciones son bienvenidas! Por favor, sigue estos pasos:
+
+1. **Fork del repositorio**
+
+2. **Crear una nueva rama**
+
+   ```bash
+   git checkout -b feature/TuFeature
+   ```
+
+3. **Realiza tus cambios**
+
+4. **Hacer commit de los cambios**
+
+   ```bash
+   git commit -m "Añade tu mensaje"
+   ```
+
+5. **Push a la rama**
+
+   ```bash
+   git push origin feature/TuFeature
+   ```
+
+6. **Crear un nuevo Pull Request**
+
+## Licencia
+
+Este proyecto está licenciado bajo la [Licencia MIT](LICENSE).
+
+---
+
+### **Notas Adicionales:**
+
+- **Alias de Paths (`@/`):** La configuración de alias permite importar módulos desde la carpeta `src/` utilizando `@/` como prefijo, lo que simplifica las rutas de importación.
+
+- **Mock de Variables de Entorno:** Para manejar `import.meta.env`, se ha creado un módulo separado (`env.ts`) que exporta las variables de entorno necesarias. Este módulo se mockea en los tests para proporcionar valores fijos.
+
+- **Configuración de Jest:** La configuración de Jest está ajustada para manejar TypeScript, React y los path aliases definidos en `tsconfig.app.json`.
+
+### **Contacto**
+
+Para cualquier duda o sugerencia, por favor abre una [issue](https://github.com/edecarlini/membrane-frontend-cc/issues) o contacta al mantenedor del proyecto.
