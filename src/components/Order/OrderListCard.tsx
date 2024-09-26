@@ -1,7 +1,7 @@
 import { useOrderStore } from '@/store/useOrderStore';
-import { useSnackbarStore } from '@/store/useSnackbarstore';
+import { useSnackbarStore } from '@/store/useSnackbarStore';
 import { Order } from '@/types/order';
-import { getCodeByCriptoId } from '@/utils/cryptos/getCodeByCriptoId';
+import { getCodeByCryptoId } from '@/utils/cryptos/getCodeByCryptoId';
 import { Delete, Edit } from '@mui/icons-material';
 import {
   Box,
@@ -71,7 +71,7 @@ const OrderListCard = ({ onEdit }: { onEdit: (order: Order) => void }) => {
               {order.direction.toUpperCase()}
             </Typography>
             <Typography variant='h3'>
-              {order.quantity} {getCodeByCriptoId(order?.crypto)}
+              {order.quantity} {getCodeByCryptoId(order?.crypto)}
             </Typography>
           </Box>
         }

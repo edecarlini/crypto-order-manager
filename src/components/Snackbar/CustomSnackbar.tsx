@@ -1,7 +1,7 @@
 import React from 'react';
 import { Snackbar, Alert, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { useSnackbarStore } from '@/store/useSnackbarstore';
+import { useSnackbarStore } from '@/store/useSnackbarStore';
 
 const CustomSnackbar: React.FC = () => {
   const { open, message, severity, duration, showCloseIcon, closeSnackbar } =

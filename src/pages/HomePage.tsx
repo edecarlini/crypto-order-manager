@@ -1,7 +1,7 @@
 import OrderForm from '@/components/Order/OrderForm';
 import OrderList from '@/components/Order/OrderList';
 import { useOrderStore } from '@/store/useOrderStore';
-import { useSnackbarStore } from '@/store/useSnackbarstore';
+import { useSnackbarStore } from '@/store/useSnackbarStore';
 import { Order } from '@/types/order';
 import { Card, Container, Typography } from '@mui/material';
 import { useState } from 'react';
