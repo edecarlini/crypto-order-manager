@@ -1,8 +1,6 @@
 # Challenge Rather Labs
 
 ![Licencia](https://img.shields.io/badge/licencia-MIT-blue.svg)
-![Estado de Build](https://img.shields.io/github/workflow/status/edecarlini/membrane-frontend-cc/CI)
-![Versión de npm](https://img.shields.io/npm/v/challenge-ratherlabs.svg)
 
 ## Tabla de Contenidos
 
@@ -33,10 +31,11 @@ challenge-ratherlabs/
 ├── tsconfig.json
 ├── tsconfig.app.json
 ├── tsconfig.node.json
-├── tsconfig.test.json
 ├── src/
 │   ├── api/
 │   │   └── cryptoAPI.ts
+│   │   └── queryClient.ts
+
 │   ├── components/
 │   │   └── Order/
 │   │       ├── OrderForm.tsx
@@ -45,13 +44,17 @@ challenge-ratherlabs/
 │   ├── store/
 │   │   └── useOrderStore.ts
 │   │   └── useSnackbarStore.tsx
+│   ├── styles/
+│   │   └── theme.ts
 │   ├── test/
 │   │   ├── OrderForm.test.tsx
 │   │   └── OrderFull.test.tsx
 │   ├── types/
 │   │   └── order.ts
 │   └── utils/
-│       └── env.ts
+│   │   └── cryptos/
+│   │       ├── getCodeByCryptoId.ts
+│   │       ├── referenceCrypto.ts
 └── ...
 ```
 
@@ -250,8 +253,6 @@ Este proyecto está licenciado bajo la [Licencia MIT](LICENSE).
 ### **Notas Adicionales:**
 
 - **Alias de Paths (`@/`):** La configuración de alias permite importar módulos desde la carpeta `src/` utilizando `@/` como prefijo, lo que simplifica las rutas de importación.
-
-- **Mock de Variables de Entorno:** Para manejar `import.meta.env`, se ha creado un módulo separado (`env.ts`) que exporta las variables de entorno necesarias. Este módulo se mockea en los tests para proporcionar valores fijos.
 
 - **Configuración de Jest:** La configuración de Jest está ajustada para manejar TypeScript, React y los path aliases definidos en `tsconfig.app.json`.
 
