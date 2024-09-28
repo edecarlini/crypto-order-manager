@@ -9,13 +9,14 @@ import {
   InputLabel,
   MenuItem,
   Select,
+  Skeleton,
   TextField,
   ToggleButton,
   ToggleButtonGroup,
   Typography,
 } from '@mui/material';
 import { useQuery } from '@tanstack/react-query';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
 import * as yup from 'yup';
@@ -31,10 +32,19 @@ const schema = yup.object().shape({
   crypto: yup.string().required('Crypto is required'),
   quantity: yup
     .number()
+    .transform((value, originalValue) =>
+      originalValue === '' ? undefined : value
+    )
+    .typeError('Quantity must be a number')
     .positive('Quantity must be positive number')
     .required('Quantity is required'),
   usdEquivalent: yup.number().required(),
-  expirationDate: yup.string().required('Expiration date is required'),
+  expirationDate: yup
+    .string()
+    .required('Expiration date is required')
+    .test('is-future', 'Expiration date must be in the future', (value) => {
+      return value ? new Date(value) >= new Date() : false;
+    }),
 });
 
 const OrderForm = ({
@@ -65,13 +75,12 @@ const OrderForm = ({
     resolver: yupResolver<Order>(schema),
   });
 
-  const [usdEquivalent, setUsdEquivalent] = useState(0);
-
   const cryptoId = watch('crypto');
   const quantity = watch('quantity');
   const direction = watch('direction');
+  const usdEquivalent = watch('usdEquivalent') || 0;
 
-  const { data: price } = useQuery({
+  const { data: price, isLoading } = useQuery({
     queryKey: ['cryptoPrice', cryptoId],
     queryFn: () => fetchCryptoPrice(cryptoId),
     enabled: !!cryptoId,
@@ -108,7 +117,6 @@ const OrderForm = ({
   useEffect(() => {
     if (price && quantity) {
       const total = price * quantity;
-      setUsdEquivalent(total);
       setValue('usdEquivalent', total);
     }
   }, [price, quantity, setValue]);
@@ -204,19 +212,39 @@ const OrderForm = ({
           />
         )}
       />
-      <TextField
-        label='Equivalent in USD'
-        value={usdEquivalent.toFixed(2)}
-        fullWidth
-        margin='normal'
-        slotProps={{
-          input: {
-            readOnly: true,
-            startAdornment: <InputAdornment position='start'>$</InputAdornment>,
-          },
-        }}
-        disabled
-      />
+      <Box position={'relative'}>
+        <TextField
+          label='Equivalent in USD'
+          value={isLoading ? '' : usdEquivalent.toFixed(2)}
+          fullWidth
+          margin='normal'
+          slotProps={{
+            input: {
+              readOnly: true,
+              startAdornment: (
+                <InputAdornment position='start'>$</InputAdornment>
+              ),
+            },
+          }}
+          disabled
+        />
+        {isLoading && (
+          <Box
+            sx={{
+              display: 'flex',
+              position: 'absolute',
+              top: '50%',
+              left: '30px',
+              transform: 'translateY(-25%)',
+              alignItems: 'baseline',
+            }}
+          >
+            <Skeleton variant='rounded' width={40} height={24} />
+            .
+            <Skeleton variant='rounded' width={20} height={24} />
+          </Box>
+        )}
+      </Box>
       <Controller
         name='expirationDate'
         control={control}

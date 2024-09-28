@@ -52,13 +52,13 @@ const theme = createTheme(baseTheme, {
     MuiContainer: {
       styleOverrides: {
         root: {
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
+          display: 'grid',
+          gridTemplateColumns: '60% 40%',
+          alignItems: 'start',
           justifyContent: 'center',
           padding: 0,
           [baseTheme.breakpoints.down('sm')]: {
-            flexDirection: 'column',
+            gridTemplateColumns: '100%',
             alignItems: 'center',
           },
         },
@@ -71,7 +71,7 @@ const theme = createTheme(baseTheme, {
           margin: '16px',
           minHeight: 300,
           minWidth: 200,
-          maxWidth: 600,
+          maxWidth: 515,
           maxHeight: 610,
           borderRadius: 16,
           boxShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.1)',
