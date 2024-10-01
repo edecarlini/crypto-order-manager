@@ -1,25 +1,26 @@
+
 # Challenge Rather Labs
 
-![Licencia](https://img.shields.io/badge/licencia-MIT-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-## Tabla de Contenidos
+## Table of Contents
 
-- [Introducción](#introducción)
-- [Características](#características)
-- [Tecnologías Utilizadas](#tecnologías-utilizadas)
-- [Instalación](#instalación)
-- [Uso](#uso)
-- [Pruebas](#pruebas)
-- [Construcción](#construcción)
-- [Contribuyendo](#contribuyendo)
-- [Licencia](#licencia)
-- [Contacto](#contacto)
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Testing](#testing)
+- [Build](#build)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-## Introducción
+## Introduction
 
-**Challenge Rather Labs** es una aplicación web desarrollada con **React**, **Vite** y **TypeScript**, diseñada para gestionar órdenes relacionadas con criptomonedas. Permite a los usuarios crear, visualizar y gestionar órdenes, obteniendo precios en tiempo real desde una API de criptomonedas.
+**Challenge Rather Labs** is a web application developed with **React**, **Vite**, and **TypeScript**, designed to manage orders related to cryptocurrencies. It allows users to create, view, and manage orders while retrieving real-time prices from a cryptocurrency API.
 
-### Estructura del Proyecto
+### Project Structure
 
 ```
 challenge-ratherlabs/
@@ -58,15 +59,15 @@ challenge-ratherlabs/
 └── ...
 ```
 
-## Características
+## Features
 
-- **Crear Órdenes:** Los usuarios pueden crear nuevas órdenes seleccionando una criptomoneda, especificando la cantidad y estableciendo una fecha de expiración.
-- **Ver Órdenes:** Muestra una lista de todas las órdenes con detalles como criptomoneda, cantidad, precio total y fecha de expiración.
-- **Editar Órdenes:** Los usuarios pueden editar órdenes existentes para actualizar sus detalles.
-- **Eliminar Órdenes:** Los usuarios pueden descartar órdenes que ya no necesitan.
-- **Obtención de Precios en Tiempo Real:** Integra con una API de criptomonedas para obtener precios en tiempo real.
+- **Create Orders:** Users can create new orders by selecting a cryptocurrency, specifying the amount, and setting an expiration date.
+- **View Orders:** Displays a list of all orders with details such as cryptocurrency, quantity, total price, and expiration date.
+- **Edit Orders:** Users can edit existing orders to update their details.
+- **Delete Orders:** Users can discard orders that they no longer need.
+- **Real-Time Price Fetching:** Integrates with a cryptocurrency API to fetch real-time prices.
 
-## Tecnologías Utilizadas
+## Technologies Used
 
 - **Frontend:**
 
@@ -86,176 +87,175 @@ challenge-ratherlabs/
   - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
   - [@testing-library/jest-dom](https://github.com/testing-library/jest-dom)
 
-- **Otros:**
+- **Others:**
   - [ESLint](https://eslint.org/)
   - [Prettier](https://prettier.io/)
 
-## Instalación
+## Installation
 
-### Prerrequisitos
+### Prerequisites
 
-- **Node.js** (v14 o superior)
-- **npm** (v6 o superior) o **yarn**
+- **Node.js** (v14 or higher)
+- **npm** (v6 or higher) or **yarn**
 
-### Pasos
+### Steps
 
-1. **Clonar el Repositorio**
+1. **Clone the Repository**
 
    ```bash
    git clone https://github.com/edecarlini/challenge-ratherlabs.git
    cd challenge-ratherlabs
    ```
 
-2. **Instalar Dependencias**
+2. **Install Dependencies**
 
-   Usando npm:
+   Using npm:
 
    ```bash
    npm install
    ```
 
-   O usando yarn:
+   Or using yarn:
 
    ```bash
    yarn install
    ```
 
-3. **Configurar Variables de Entorno**
+3. **Set Environment Variables**
 
-   Crea un archivo `.env` en el directorio raíz y añade las variables de entorno necesarias.
+   Create a `.env` file in the root directory and add the necessary environment variables.
 
    ```env
-   VITE_API_URL=https://api.ejemplo.com
+   VITE_API_URL=https://api.example.com
    ```
 
-   Reemplaza `https://api.coingecko.com/api/v3` con tu endpoint de API real.
+   Replace `https://api.coingecko.com/api/v3` with your actual API endpoint.
 
 ## Docker
 
-Puedes levantar este proyecto ejecutando:
+You can run this project by executing:
 
 ```bash
 docker-compose up --build
 ```
 
-y el proyecto estará disponible instalando las dependencias y configuraciones necesarias para que funcione correctamente.
+The project will be available after installing the necessary dependencies and configurations.
 
-Al finalizar estará disponible en:
+It will be accessible at:
 
 ```bash
 localhost:3000
 ```
 
-Si quieres detener el contenedor:
+If you want to stop the container:
 
 ```bash
 docker-compose down
 ```
 
-## Uso
+## Usage
 
-### Servidor de Desarrollo
+### Development Server
 
-Para iniciar el servidor de desarrollo, ejecuta:
+To start the development server, run:
 
 ```bash
 npm run dev
 ```
 
-O usando yarn:
+Or using yarn:
 
 ```bash
 yarn dev
 ```
 
-La aplicación estará disponible en `http://localhost:5173` por defecto.
+The application will be available at `http://localhost:5173` by default.
 
-### Construcción para Producción
+### Production Build
 
-Para construir la aplicación para producción, ejecuta:
+To build the application for production, run:
 
 ```bash
 npm run build
 ```
 
-O usando yarn:
+Or using yarn:
 
 ```bash
 yarn build
 ```
 
-Los artefactos de la construcción se almacenarán en el directorio `dist/`.
+The build artifacts will be stored in the `dist/` directory.
 
-### Previsualizar la Construcción de Producción
+### Preview Production Build
 
-Para previsualizar la construcción de producción localmente, ejecuta:
+To preview the production build locally, run:
 
 ```bash
 npm run preview
 ```
 
-O usando yarn:
+Or using yarn:
 
 ```bash
 yarn preview
 ```
 
-## Pruebas
+## Testing
 
-El proyecto utiliza **Jest** para realizar pruebas. Las pruebas están escritas utilizando **React Testing Library**.
+The project uses **Jest** for testing. Tests are written using **React Testing Library**.
 
-### Ejecutar Pruebas
+### Run Tests
 
-Para ejecutar todas las pruebas, ejecuta:
+To run all tests, execute:
 
 ```bash
 npm run test
 ```
 
-O usando yarn:
+Or using yarn:
 
 ```bash
 yarn test
 ```
 
-### Configuración de las Pruebas
+### Test Configuration
 
-El proyecto utiliza Jest con `ts-jest` para soporte de TypeScript. La configuración de Jest está definida en `jest.config.cjs`.
+The project uses Jest with `ts-jest` for TypeScript support. Jest configuration is defined in `jest.config.cjs`.
 
-### Escribir Pruebas
+### Writing Tests
 
-Las pruebas se encuentran en el directorio `src/test/`. Puedes crear nuevos archivos de prueba siguiendo el patrón `NombreComponente.test.tsx`.
+Tests are located in the `src/test/` directory. You can create new test files following the pattern `ComponentName.test.tsx`.
 
-## Construcción
+## Build
 
-El proceso de construcción está manejado por **Vite** y **TypeScript**.
+The build process is managed by **Vite** and **TypeScript**.
 
-Para crear una construcción para producción, usa:
+To create a production build, use:
 
 ```bash
 npm run build
 ```
 
-O usando yarn:
+Or using yarn:
 
 ```bash
 yarn build
 ```
 
-Esto generará archivos optimizados y minificados en el directorio `dist/`.
+This will generate optimized and minified files in the `dist/` directory.
 
-## Licencia
+## License
 
-Este proyecto está licenciado bajo la [Licencia MIT](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-### **Notas Adicionales:**
+### **Additional Notes:**
 
-- **Alias de Paths (`@/`):** La configuración de alias permite importar módulos desde la carpeta `src/` utilizando `@/` como prefijo, lo que simplifica las rutas de importación.
+- **Path Aliases (`@/`):** The alias configuration allows importing modules from the `src/` folder using `@/` as a prefix, simplifying import paths.
+- **Jest Configuration:** The Jest configuration is set up to handle TypeScript, React, and the path aliases defined in `tsconfig.app.json`.
 
-- **Configuración de Jest:** La configuración de Jest está ajustada para manejar TypeScript, React y los path aliases definidos en `tsconfig.app.json`.
+### **Contact**
 
-### **Contacto**
-
-Para cualquier duda o sugerencia, por favor abre una [issue](https://github.com/edecarlini/membrane-frontend-cc/issues) o contacta al mantenedor del proyecto.
+For any questions or suggestions, please open an [issue](https://github.com/edecarlini/membrane-frontend-cc/issues) or contact the project maintainer.
