@@ -1,5 +1,5 @@
 
-# Challenge Rather Labs
+# Cryptocurrency Order Manager
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
@@ -18,12 +18,12 @@
 
 ## Introduction
 
-**Challenge Rather Labs** is a web application developed with **React**, **Vite**, and **TypeScript**, designed to manage orders related to cryptocurrencies. It allows users to create, view, and manage orders while retrieving real-time prices from a cryptocurrency API.
+web application developed with **React**, **Vite**, and **TypeScript**, designed to manage orders related to cryptocurrencies. It allows users to create, view, and manage orders while retrieving real-time prices from a cryptocurrency API.
 
 ### Project Structure
 
 ```
-challenge-ratherlabs/
+crypto-order-manager/
 ├── __mocks__/
 │   └── fileMock.js
 ├── jest.config.cjs
@@ -103,8 +103,8 @@ challenge-ratherlabs/
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/edecarlini/challenge-ratherlabs.git
-   cd challenge-ratherlabs
+   git clone https://github.com/edecarlini/crypto-order-manager.git
+   cd crypto-order-manager
    ```
 
 2. **Install Dependencies**
@@ -258,4 +258,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ### **Contact**
 
-For any questions or suggestions, please open an [issue](https://github.com/edecarlini/membrane-frontend-cc/issues) or contact the project maintainer.
+For any questions or suggestions, please open an [issue](https://github.com/edecarlini/crypto-order-manager/issues) or contact the project maintainer.
